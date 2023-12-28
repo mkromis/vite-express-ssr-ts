@@ -70,7 +70,7 @@ const createServer = async () => {
 
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                render = (await import('../entry/entry-server.js')).default.render;
+                render = (await import('./entry/entry-server.js')).default.render;
             }
 
             const context: any = {};

@@ -17,7 +17,7 @@
       "ESNext"
     ],
     "strict": true,
-    "outDir": "dist/app",
+    "outDir": "dist",
     "module": "ESNext",
     "moduleResolution": "Node",
     "skipLibCheck": true,
