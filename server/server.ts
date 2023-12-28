@@ -2,7 +2,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import express from 'express';
-import api from './server/app.js';
+import api from './app.js';
 
 const __dirname: string = path.dirname(fileURLToPath(import.meta.url));
 const isTest = process.env.VITEST;
@@ -12,7 +12,7 @@ const root: string = process.cwd();
 const resolve = (_path: string) => path.resolve(__dirname, _path);
 
 const indexProd: string = isProd
-    ? fs.readFileSync(resolve('client/index.html'), 'utf-8')
+    ? fs.readFileSync(resolve('../client/index.html'), 'utf-8')
     : ''
 
 const createServer = async () => {
@@ -42,7 +42,7 @@ const createServer = async () => {
         app.use((await import('compression')).default())
 
         app.use(
-            (await import('serve-static')).default(resolve('./client'), {
+            (await import('serve-static')).default(resolve('../client'), {
                 index: false
             })
         )
@@ -59,7 +59,7 @@ const createServer = async () => {
             let template, render;
 
             if (!isProd) {
-                template = fs.readFileSync(resolve('index.html'), 'utf8')
+                template = fs.readFileSync(resolve('../index.html'), 'utf8')
                 template = await vite.transformIndexHtml(url, template)
 
                 render = (await vite.ssrLoadModule('/src/entry-server.tsx')).default.render;
@@ -70,7 +70,7 @@ const createServer = async () => {
 
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                render = (await import('./entry/entry-server.js')).default.render;
+                render = (await import('../entry/entry-server.js')).default.render;
             }
 
             const context: any = {};

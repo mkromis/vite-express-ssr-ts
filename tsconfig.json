@@ -17,7 +17,7 @@
       "ESNext"
     ],
     "strict": true,
-    "outDir": "dist",
+    "outDir": "dist/client",
     "module": "ESNext",
     "moduleResolution": "Node",
     "skipLibCheck": true,
@@ -27,8 +27,9 @@
   "include": [
     "src/**/*",
     "types/*",
-    "node_modules/vite/types/*"
-, "server/app.ts"  ],
+    "node_modules/vite/types/*",
+    "server/app.ts",
+  ],
   "exclude": [
     "node_modules",
     "dist"
