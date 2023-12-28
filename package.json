@@ -9,7 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "build:client": "vite build --outDir dist/client",
-    "build:server": "tsc -p tsconfig.server.json && vite build --ssr src/entry-server.tsx --outDir dist/entry",
+    "build:server": "tsc -p tsconfig.server.json && vite build --ssr client/entry-server.tsx --outDir dist/entry",
     "clean": "rimraf dist",
     "serve": "cross-env NODE_ENV=production node ./dist/server/server"
   },

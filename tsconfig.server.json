@@ -31,7 +31,7 @@
   ],
   "exclude": [
     "dist",
-    "src/*.tsx"
+    "client/*.tsx"
   ],
   "ts-node": {
     "transpileOnly": true,
